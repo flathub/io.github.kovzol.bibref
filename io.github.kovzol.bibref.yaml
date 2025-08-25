@@ -22,6 +22,10 @@ modules:
       - type: archive
         url: https://www.crosswire.org/ftpmirror/pub/sword/source/v1.9/sword-1.9.0.tar.gz
         sha256: 42409cf3de2faf1108523e2c5ac0745d21f9ed2a5c78ed878ee9dcc303426b8a
+        x-checker-data:
+          type: anitya
+          project-id: 230546
+          url-template: https://www.crosswire.org/ftpmirror/pub/sword/source/v${version0}.${version1}/sword-$version.tar.gz
 
   - name: boost
     buildsystem: simple
@@ -30,24 +34,27 @@ modules:
       - ./b2 -j $FLATPAK_BUILDER_N_JOBS install
     sources:
       - type: archive
-        url: https://archives.boost.io/release/1.87.0/source/boost_1_87_0.tar.bz2
-        sha256: af57be25cb4c4f4b413ed692fe378affb4352ea50fbe294a11ef548f4d527d89
+        url: https://archives.boost.io/release/1.89.0/source/boost_1_89_0.tar.gz
+        sha256: 9de758db755e8330a01d995b0a24d09798048400ac25c03fc5ea9be364b13c93
+        x-checker-data:
+          type: anitya
+          project-id: 6845
+          url-template: https://archives.boost.io/release/$version/source/boost_${version0}_${version1}_${version2}.tar.gz
 
   - name: graphviz
-    buildsystem: simple
-    build-commands:
-      - tar xzf graphviz-12.2.1.tar.gz
-      - cd graphviz-12.2.1 && ./configure --prefix=${FLATPAK_DEST}
-      - cd graphviz-12.2.1 && make install
     cleanup:
       - /share/man
       - /share/graphviz
       - /share/doc/graphviz
       - /bin/*
     sources:
-      - type: file
-        url: https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/12.2.1/graphviz-12.2.1.tar.gz
-        sha256: 242bc18942eebda6db4039f108f387ec97856fc91ba47f21e89341c34b554df8
+      - type: archive
+        url: https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/13.1.2/graphviz-13.1.2.tar.gz
+        sha256: 4050d308fad1cd835b4afe2192f3677de2583891ebf0661cb9c565f611e4901d
+        x-checker-data:
+          type: anitya
+          project-id: 1249
+          url-template: https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/$version/graphviz-$version.tar.gz
 
   - name: bibref-qt
     buildsystem: cmake-ninja
