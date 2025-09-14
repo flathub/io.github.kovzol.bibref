@@ -1,6 +1,8 @@
 id: io.github.kovzol.bibref
 runtime: org.kde.Platform
 runtime-version: '6.9'
+base: io.qt.qtwebengine.BaseApp
+base-version: '6.9'
 sdk: org.kde.Sdk
 command: bibref-qt
 finish-args:
@@ -8,6 +10,7 @@ finish-args:
   - --socket=fallback-x11
   - --socket=wayland
   - --device=dri
+  - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
   - --system-talk-name=org.freedesktop.UDisks2
 modules:
   - name: sword
@@ -64,6 +67,7 @@ modules:
       - -DBUILD_SHARED_LIBS=ON
       - -UPROJECT_SOURCE_DIR
       - -DPROJECT_SOURCE_DIR=/app/share/bibref-qt
+      - -DWEBENGINE=ON
     # The cmake machinery will put the required databases in $XDG_DATA_HOME (if it is set).
     # By setting that value we put the database to /app/tmp/.sword temporarily
     # and later we copy it to /app/share/sword in the post-install step:
@@ -72,11 +76,11 @@ modules:
         XDG_DATA_HOME: /app/tmp
     sources:
       # - type: git
-      # url: https://github.com/kovzol/bibref      
-      # tag: 2025-08-22 # does not yet exist
+      # url: https://github.com/kovzol/bibref
+      # tag: 2025-09-14 # does not yet exist
       - type: archive
-        url: https://github.com/kovzol/bibref/archive/3138041e2e7fb5f45c28eccb719267f0f40e5bbb.zip
-        sha256: c79fe8c0fd434795a286b490b524682dfc61e86f7ae775fac76c52da7a052a11
+        url: https://github.com/kovzol/bibref/archive/912fad04a3f3fe8d4588c036d00c3af750c6be4b.zip
+        sha256: 7d5e2c737ba547c149e4257fd1ab34adeabd05d0ef035783f02b05311d8a048f
     post-install:
       - mv /app/tmp/.sword/* /app/share/sword
 
@@ -84,3 +88,6 @@ cleanup:
   - /include
   - /lib/cmake
   - /lib/pkgconfig
+
+cleanup-commands:
+  - /app/cleanup-BaseApp.sh
