@@ -52,8 +52,8 @@ modules:
       - /bin/*
     sources:
       - type: archive
-        url: https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/14.0.1/graphviz-14.0.1.tar.gz
-        sha256: 647e7d6aa60158347d3537aef16415a07b71be86c80df84a49dcafd398f54e76
+        url: https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/14.0.2/graphviz-14.0.2.tar.gz
+        sha256: d555b4fd18a3645c34bdd876bc7e8206c8c8e2404abf7872aae5ee0d5df46378
         x-checker-data:
           type: anitya
           project-id: 1249
