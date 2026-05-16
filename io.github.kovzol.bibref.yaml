@@ -12,6 +12,12 @@ finish-args:
   - --device=dri
   - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
   - --system-talk-name=org.freedesktop.UDisks2
+cleanup:
+  - /include
+  - /lib/cmake
+  - /lib/pkgconfig
+cleanup-commands:
+  - /app/cleanup-BaseApp.sh
 modules:
   - name: sword
     buildsystem: cmake-ninja
@@ -85,11 +91,3 @@ modules:
         sha256: 1f47dc9dc16e1b05629de78b7a652fec167757dc089c0599a96034826eaa306a
     post-install:
       - mv /app/tmp/.sword/* /app/share/sword
-
-cleanup:
-  - /include
-  - /lib/cmake
-  - /lib/pkgconfig
-
-cleanup-commands:
-  - /app/cleanup-BaseApp.sh
