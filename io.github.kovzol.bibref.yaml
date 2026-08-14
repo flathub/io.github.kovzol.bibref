@@ -45,8 +45,8 @@ modules:
       - ./b2 -j $FLATPAK_BUILDER_N_JOBS install
     sources:
       - type: archive
-        url: https://archives.boost.io/release/1.90.0/source/boost_1_90_0.tar.gz
-        sha256: 5e93d582aff26868d581a52ae78c7d8edf3f3064742c6e77901a1f18a437eea9
+        url: https://archives.boost.io/release/1.92.0/source/boost_1_92_0.tar.gz
+        sha256: c4a3b310ddd2472416e091067166b0713be97c63f38c212c484ada022fd296ce
         x-checker-data:
           type: anitya
           project-id: 6845
@@ -60,8 +60,8 @@ modules:
       - /bin/*
     sources:
       - type: archive
-        url: https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/15.1.1/graphviz-15.1.1.tar.gz
-        sha256: d511d8938bbfe985b84506c96d1bbf1acba4ad88e62b51421a8b954e572f30d9
+        url: https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/16.0.0/graphviz-16.0.0.tar.gz
+        sha256: 36a1de1aaf5a2023b14f95170a5f8f0b12522d1c305b517fc261966597050749
         x-checker-data:
           type: anitya
           project-id: 1249
